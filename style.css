@@ -271,12 +271,12 @@ section.tight { padding: var(--sp-12) 0; }
 }
 .brand:hover { opacity: 0.85; color: var(--ink); }
 .brand-logo {
-  height: 68px;
+  height: 60px !important;
   width: auto;
   display: block;
   transition: height 300ms var(--ease);
 }
-.site-header.scrolled .brand-logo { height: 52px; }
+.site-header.scrolled .brand-logo { height: 52px !important; }
 
 .nav-links {
   display: flex;
@@ -338,8 +338,8 @@ section.tight { padding: var(--sp-12) 0; }
     gap: var(--sp-4);
     align-items: flex-start;
   }
-  .brand-logo { height: 52px; }
-  .site-header.scrolled .brand-logo { height: 44px; }
+  .brand-logo { height: 52px !important; }
+  .site-header.scrolled .brand-logo { height: 44px !important; }
 }
 
 /* ---------- 8. Hero ---------- */
@@ -730,14 +730,15 @@ section.tight { padding: var(--sp-12) 0; }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(var(--sp-8), 8vw, var(--sp-16));
+  gap: clamp(var(--sp-6), 5vw, var(--sp-10));
   flex-wrap: wrap;
 }
 .channel-logo {
-  height: 32px;
-  width: auto;
-  max-width: 160px;
+  height: 36px !important;
+  width: auto !important;
+  max-width: 120px !important;
   object-fit: contain;
+  flex-shrink: 0;
   opacity: 0.7;
   filter: grayscale(0.2);
   transition: opacity 300ms var(--ease), transform 300ms var(--ease), filter 300ms var(--ease);
@@ -748,7 +749,7 @@ section.tight { padding: var(--sp-12) 0; }
   filter: grayscale(0);
 }
 @media (max-width: 600px) {
-  .channel-logo { height: 26px; }
+  .channel-logo { height: 30px !important; max-width: 100px !important; }
 }
 
 /* ---------- 11. Services preview cards (home) ---------- */
@@ -1196,7 +1197,7 @@ section.tight { padding: var(--sp-12) 0; }
 @media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; } }
 
 .footer-brand .brand { margin-bottom: var(--sp-4); }
-.footer-brand .brand-logo { height: 56px; }
+.footer-brand .brand-logo { height: 56px !important; }
 .footer-brand p { color: var(--ink-soft); font-size: 0.95rem; max-width: 36ch; }
 
 .footer-col h4 {
