@@ -11,7 +11,6 @@
 
   <link rel="icon" href="images/favicon.ico">
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Be Happy Prep Center">
   <meta property="og:title" content="Services | Be Happy Prep Center — FBA, FBM, TikTok, Etsy & Shopify">
@@ -19,20 +18,17 @@
   <meta property="og:url" content="https://behappyprep.com/services.html">
   <meta property="og:image" content="https://behappyprep.com/og-image.jpg">
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Services | Be Happy Prep Center">
   <meta name="twitter:description" content="Amazon FBA & FBM, TikTok Shop, Etsy and Shopify fulfillment from Dania Beach, FL.">
   <meta name="twitter:image" content="https://behappyprep.com/og-image.jpg">
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..600,0..100&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 
-  <!-- Local Business JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -53,22 +49,16 @@
       "postalCode": "33004",
       "addressCountry": "US"
     },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 26.0590,
-      "longitude": -80.1437
-    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 26.0590, "longitude": -80.1437 },
     "openingHoursSpecification": [{
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-      "opens": "09:00",
-      "closes": "18:00"
+      "opens": "09:00", "closes": "18:00"
     }],
     "sameAs": []
   }
   </script>
 
-  <!-- Service catalog schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -120,263 +110,513 @@
     <span class="eyebrow">Services</span>
     <h1 id="page-title">Five marketplaces. <em class="italic-accent">One</em> set of hands.</h1>
     <p class="lede">
-      Whether your orders are flowing into Amazon Seller Central, exploding from a TikTok
-      live, or trickling out of an Etsy shop, the work behind the scenes looks the same —
-      careful, traceable, and on time. Here's exactly what we do, channel by channel.
+      Whether your orders flow into Amazon Seller Central, explode from a TikTok live,
+      or trickle out of an Etsy shop, the work behind the scenes looks the same —
+      careful, traceable, on time. Tap a service below to jump straight to the details.
     </p>
   </div>
 </section>
 
-<!-- ============== 01 · AMAZON FBA ============== -->
-<article class="service-block alt" id="fba">
+<!-- ============== OVERVIEW GRID ============== -->
+<section class="service-overview" aria-labelledby="overview-title">
   <div class="container">
-    <div class="service-block-inner reveal">
-      <div class="service-block-content">
-        <div class="service-meta">
-          <span class="service-num">01</span>
-          <span class="service-meta-sep"></span>
-          <span class="service-channel">Amazon FBA</span>
+    <h2 id="overview-title" class="sr-only">Services overview</h2>
+
+    <div class="service-overview-grid reveal">
+
+      <a class="overview-card" href="#fba">
+        <span class="overview-card-num">01</span>
+        <span class="overview-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">
+            <rect x="8" y="14" width="32" height="26" rx="1.5"/>
+            <path d="M8 20h32"/>
+            <path d="M16 14V10h16v4"/>
+            <path d="M18 28h12"/>
+            <path d="M18 33h8"/>
+            <circle cx="32" cy="32" r="1.2" fill="currentColor"/>
+          </svg>
+        </span>
+        <h3 class="overview-card-title">Amazon FBA Prep</h3>
+        <p class="overview-card-tagline">FNSKU labeling, poly bagging, and shipment plans that pass inspection every time.</p>
+        <span class="overview-card-jump">Jump to details <span class="arrow">↓</span></span>
+      </a>
+
+      <a class="overview-card" href="#fbm">
+        <span class="overview-card-num">02</span>
+        <span class="overview-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M6 18l18-9 18 9-18 9z"/>
+            <path d="M6 18v15l18 9 18-9V18"/>
+            <path d="M24 27v15"/>
+            <path d="M15 13.5l18 9" stroke-dasharray="2 2"/>
+          </svg>
+        </span>
+        <h3 class="overview-card-title">Amazon FBM</h3>
+        <p class="overview-card-tagline">Same-day pick, pack, and ship for merchant-fulfilled orders — your brand on every box.</p>
+        <span class="overview-card-jump">Jump to details <span class="arrow">↓</span></span>
+      </a>
+
+      <a class="overview-card" href="#tiktok">
+        <span class="overview-card-num">03</span>
+        <span class="overview-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M8 24c4-8 10-12 16-12s12 4 16 12"/>
+            <path d="M8 24c4 8 10 12 16 12s12-4 16-12"/>
+            <circle cx="24" cy="24" r="5"/>
+            <path d="M36 12v8" stroke-linecap="round"/>
+            <path d="M40 16h-8" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <h3 class="overview-card-title">TikTok Shop</h3>
+        <p class="overview-card-tagline">Built for the spike. 24-hour ship windows that protect your seller rating.</p>
+        <span class="overview-card-jump">Jump to details <span class="arrow">↓</span></span>
+      </a>
+
+      <a class="overview-card" href="#etsy">
+        <span class="overview-card-num">04</span>
+        <span class="overview-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M14 8l10 6 10-6"/>
+            <path d="M14 8v6l10 6 10-6V8"/>
+            <path d="M14 14l-4 4v22h28V18l-4-4"/>
+            <path d="M20 40v-12h8v12"/>
+            <circle cx="24" cy="24" r="1.5" fill="currentColor"/>
+          </svg>
+        </span>
+        <h3 class="overview-card-title">Etsy</h3>
+        <p class="overview-card-tagline">Tissue paper, twine, handwritten notes — the handmade feel without the handmade hours.</p>
+        <span class="overview-card-jump">Jump to details <span class="arrow">↓</span></span>
+      </a>
+
+      <a class="overview-card" href="#shopify">
+        <span class="overview-card-num">05</span>
+        <span class="overview-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">
+            <rect x="6" y="14" width="36" height="24" rx="2"/>
+            <path d="M6 22h36"/>
+            <circle cx="12" cy="18" r="1" fill="currentColor"/>
+            <circle cx="16" cy="18" r="1" fill="currentColor"/>
+            <circle cx="20" cy="18" r="1" fill="currentColor"/>
+            <path d="M14 30h10"/>
+            <path d="M14 34h6"/>
+            <path d="M34 30l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <h3 class="overview-card-title">Shopify</h3>
+        <p class="overview-card-tagline">A 3PL disguised as your brand — direct admin sync, branded inserts, your tape.</p>
+        <span class="overview-card-jump">Jump to details <span class="arrow">↓</span></span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============== DETAILED SECTIONS ============== -->
+
+<!-- 01 · FBA -->
+<article class="service-detail" id="fba">
+  <div class="container">
+    <div class="reveal">
+      <div class="detail-marker">
+        <span class="marker-num">01 / 05</span>
+        <span class="marker-sep"></span>
+        <span>Amazon Seller Central · FBA</span>
+      </div>
+
+      <div class="detail-head">
+        <div class="detail-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="8" y="14" width="32" height="26" rx="1.5"/>
+            <path d="M8 20h32"/>
+            <path d="M16 14V10h16v4"/>
+            <path d="M18 28h12"/>
+            <path d="M18 33h8"/>
+          </svg>
         </div>
-        <div class="service-channel-pill">
-          <img src="images/Amazon.webp" alt="Amazon icon">
-          <span>Amazon Seller Central</span>
-        </div>
-
-        <h2>FBA prep that <em class="italic-accent">never</em> gets your shipment flagged.</h2>
-        <p class="lede">
-          The single biggest cost in Amazon FBA isn't the prep itself — it's the
-          mistakes. Mislabeled cartons, missing poly bags, suffocation warnings on
-          the wrong SKUs. Our team handles every shipment as if our seller account
-          depended on it, because for our clients, it does.
-        </p>
-
-        <ul class="service-features">
-          <li>FNSKU labeling on every unit, every time</li>
-          <li>Poly bagging with suffocation warnings</li>
-          <li>Bubble wrapping for fragile items</li>
-          <li>Expiration date and lot tracking</li>
-          <li>Bundling, kitting, and multi-pack creation</li>
-          <li>Shipment plan creation in Seller Central</li>
-          <li>Box content and 2D barcode prep</li>
-          <li>Carrier-ready palletizing</li>
-        </ul>
-
-        <div class="service-block-ctas">
-          <a href="contact.html?service=fba" class="btn btn-primary">Get a FBA Quote <span class="arrow">→</span></a>
-          <a href="pricing.html#fba" class="btn btn-ghost">See FBA pricing</a>
+        <div>
+          <h2>FBA prep that <em class="italic-accent">never</em> gets your shipment flagged.</h2>
+          <p class="lede">The single biggest cost in Amazon FBA isn't the prep — it's the mistakes. Mislabeled cartons, missing poly bags, suffocation warnings on the wrong SKU. We handle every shipment as if our seller account depended on it, because for our clients, it does.</p>
         </div>
       </div>
 
-      <div class="service-block-visual">
-        <div class="hex-frame">
-          <img src="https://images.unsplash.com/photo-1601598851547-4302969d0614?w=900&q=80"
-               alt="Amazon FBA warehouse boxes prepared for shipment">
+      <div class="detail-body">
+        <div>
+          <h3 class="detail-section-title">What's included</h3>
+          <ul class="detail-features">
+            <li>FNSKU labeling on every unit — applied, not stickered over</li>
+            <li>Poly bagging with compliant suffocation warnings (≥1.5 mil)</li>
+            <li>Bubble wrapping for fragile and glass items</li>
+            <li>Expiration date and lot tracking on every consumable</li>
+            <li>Bundling, kitting, and multi-pack creation</li>
+            <li>Shipment plan creation and split-shipment optimization</li>
+            <li>Box content labels and 2D barcode prep</li>
+            <li>Carrier-ready palletizing for LTL and SPD</li>
+          </ul>
+          <div class="detail-ctas">
+            <a href="contact.html?service=fba" class="btn btn-primary">Get a FBA Quote <span class="arrow">→</span></a>
+            <a href="pricing.html#fba" class="btn btn-ghost">See FBA pricing</a>
+          </div>
         </div>
-        <span class="visual-tag">Live · FBA prep floor</span>
+
+        <div class="detail-workflow">
+          <h3 class="detail-section-title">How a FBA shipment moves</h3>
+          <ol class="workflow-list">
+            <li class="workflow-step">
+              <span class="workflow-dot">01</span>
+              <div class="workflow-content">
+                <p class="workflow-title">Inbound received</p>
+                <p class="workflow-desc">Photographed, counted, and matched against the PO. Any damage flagged before opening.</p>
+              </div>
+            </li>
+            <li class="workflow-step">
+              <span class="workflow-dot">02</span>
+              <div class="workflow-content">
+                <p class="workflow-title">Prep to spec</p>
+                <p class="workflow-desc">FNSKUs printed, units bagged or wrapped per category, expiration dates logged.</p>
+              </div>
+            </li>
+            <li class="workflow-step">
+              <span class="workflow-dot">03</span>
+              <div class="workflow-content">
+                <p class="workflow-title">Shipment plan built</p>
+                <p class="workflow-desc">Splits, box contents, and pallet labels generated in Seller Central — sent for your approval.</p>
+              </div>
+            </li>
+            <li class="workflow-step">
+              <span class="workflow-dot">04</span>
+              <div class="workflow-content">
+                <p class="workflow-title">Picked up by carrier</p>
+                <p class="workflow-desc">Tracking numbers and photo proof of pack delivered before the truck leaves.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
       </div>
     </div>
   </div>
 </article>
 
-<!-- ============== 02 · AMAZON FBM ============== -->
-<article class="service-block reverse" id="fbm">
+<!-- 02 · FBM -->
+<article class="service-detail alt" id="fbm">
   <div class="container">
-    <div class="service-block-inner reveal">
-      <div class="service-block-content">
-        <div class="service-meta">
-          <span class="service-num">02</span>
-          <span class="service-meta-sep"></span>
-          <span class="service-channel">Amazon FBM</span>
+    <div class="reveal">
+      <div class="detail-marker">
+        <span class="marker-num">02 / 05</span>
+        <span class="marker-sep"></span>
+        <span>Amazon · Merchant Fulfilled</span>
+      </div>
+
+      <div class="detail-head">
+        <div class="detail-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 18l18-9 18 9-18 9z"/>
+            <path d="M6 18v15l18 9 18-9V18"/>
+            <path d="M24 27v15"/>
+          </svg>
         </div>
-        <div class="service-channel-pill">
-          <img src="images/Amazon.webp" alt="Amazon icon">
-          <span>Merchant Fulfilled</span>
-        </div>
-
-        <h2>FBM fulfillment with <em class="italic-accent">your</em> name on the box.</h2>
-        <p class="lede">
-          Sometimes the math works out better outside FBA — oversized items, fast-moving
-          local inventory, products that don't fit Amazon's prep matrix. We pick, pack,
-          and ship FBM orders the same day they come in, at carrier rates we pass through
-          without markup.
-        </p>
-
-        <ul class="service-features">
-          <li>Same-day order cutoffs (when received before noon)</li>
-          <li>Order import from Amazon Seller Central</li>
-          <li>USPS, UPS, FedEx label generation</li>
-          <li>Carrier rates passed through at cost</li>
-          <li>Custom packaging and branded inserts</li>
-          <li>Tracking numbers synced back to Amazon</li>
-          <li>Real-time inventory reporting</li>
-          <li>Return processing and reintegration</li>
-        </ul>
-
-        <div class="service-block-ctas">
-          <a href="contact.html?service=fbm" class="btn btn-primary">Get a FBM Quote <span class="arrow">→</span></a>
-          <a href="pricing.html#fbm" class="btn btn-ghost">See FBM pricing</a>
+        <div>
+          <h2>FBM fulfillment with <em class="italic-accent">your</em> name on the box.</h2>
+          <p class="lede">Sometimes the math works better outside FBA — oversized items, fast-moving local inventory, products that don't fit Amazon's prep matrix. We pick, pack, and ship FBM orders the same day they come in, at carrier rates we pass through without markup.</p>
         </div>
       </div>
 
-      <div class="service-block-visual">
-        <div class="hex-frame">
-          <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&q=80"
-               alt="Worker packing an Amazon FBM order at a fulfillment workstation">
+      <div class="detail-body">
+        <div>
+          <h3 class="detail-section-title">What's included</h3>
+          <ul class="detail-features">
+            <li>Same-day cutoffs for orders received before 12 PM ET</li>
+            <li>Direct order import from Amazon Seller Central</li>
+            <li>USPS, UPS, and FedEx label generation at our rates</li>
+            <li>Carrier rates passed through at cost — no markup</li>
+            <li>Custom packaging, branded tape, and inserts</li>
+            <li>Tracking numbers auto-synced back to Amazon</li>
+            <li>Real-time inventory reporting via spreadsheet or API</li>
+            <li>Return processing and inventory reintegration</li>
+          </ul>
+          <div class="detail-ctas">
+            <a href="contact.html?service=fbm" class="btn btn-primary">Get a FBM Quote <span class="arrow">→</span></a>
+            <a href="pricing.html#fbm" class="btn btn-ghost">See FBM pricing</a>
+          </div>
         </div>
-        <span class="visual-tag">Live · FBM packing station</span>
+
+        <div class="detail-workflow">
+          <h3 class="detail-section-title">How a FBM order moves</h3>
+          <ol class="workflow-list">
+            <li class="workflow-step">
+              <span class="workflow-dot">01</span>
+              <div class="workflow-content">
+                <p class="workflow-title">Order imported</p>
+                <p class="workflow-desc">Pulled from Seller Central within minutes of customer purchase.</p>
+              </div>
+            </li>
+            <li class="workflow-step">
+              <span class="workflow-dot">02</span>
+              <div class="workflow-content">
+                <p class="workflow-title">Picked and verified</p>
+                <p class="workflow-desc">Items pulled from your bin, double-checked, and queued for packing.</p>
+              </div>
+            </li>
+            <li class="workflow-step">
+              <span class="workflow-dot">03</span>
+              <div class="workflow-content">
+                <p class="workflow-title">Packed and labeled</p>
+                <p class="workflow-desc">Your inserts and tape, our care. Cheapest qualifying carrier rate chosen.</p>
+              </div>
+            </li>
+            <li class="workflow-step">
+              <span class="workflow-dot">04</span>
+              <div class="workflow-content">
+                <p class="workflow-title">Tracking pushed back</p>
+                <p class="workflow-desc">Buyer notification sent through Amazon. Your dashboard updates automatically.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
       </div>
     </div>
   </div>
 </article>
 
-<!-- ============== 03 · TIKTOK SHOP ============== -->
-<article class="service-block alt" id="tiktok">
+<!-- 03 · TikTok -->
+<article class="service-detail" id="tiktok">
   <div class="container">
-    <div class="service-block-inner reveal">
-      <div class="service-block-content">
-        <div class="service-meta">
-          <span class="service-num">03</span>
-          <span class="service-meta-sep"></span>
-          <span class="service-channel">TikTok Shop</span>
+    <div class="reveal">
+      <div class="detail-marker">
+        <span class="marker-num">03 / 05</span>
+        <span class="marker-sep"></span>
+        <span>TikTok Shop Seller</span>
+      </div>
+
+      <div class="detail-head">
+        <div class="detail-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M8 24c4-8 10-12 16-12s12 4 16 12"/>
+            <path d="M8 24c4 8 10 12 16 12s12-4 16-12"/>
+            <circle cx="24" cy="24" r="5"/>
+          </svg>
         </div>
-        <div class="service-channel-pill">
-          <img src="images/TikTok.webp" alt="TikTok Shop icon">
-          <span>TikTok Shop Seller</span>
-        </div>
-
-        <h2>Built for the <em class="italic-accent">spike.</em> Sized for the long game.</h2>
-        <p class="lede">
-          TikTok Shop doesn't reward slow. One viral video and a 40-orders-a-day SKU
-          turns into 800 overnight — and the sellers who can't ship in 24 hours lose
-          the algorithm. We're built for that surge, with the headcount and the systems
-          to scale up the same day you need it.
-        </p>
-
-        <ul class="service-features">
-          <li>24-hour order ship windows to protect ratings</li>
-          <li>TikTok Shop API integration for direct sync</li>
-          <li>Scale-up capacity for viral SKUs (10× same day)</li>
-          <li>Content-ready packaging for unboxing videos</li>
-          <li>Branded inserts and thank-you cards</li>
-          <li>Promotional bundle and gift-with-purchase kitting</li>
-          <li>Creator sample fulfillment</li>
-          <li>Photographed proof of pack for every order</li>
-        </ul>
-
-        <div class="service-block-ctas">
-          <a href="contact.html?service=tiktok" class="btn btn-primary">Get a TikTok Quote <span class="arrow">→</span></a>
-          <a href="pricing.html" class="btn btn-ghost">See pricing</a>
+        <div>
+          <h2>Built for the <em class="italic-accent">spike.</em> Sized for the long game.</h2>
+          <p class="lede">TikTok Shop doesn't reward slow. One viral video and a 40-orders-a-day SKU becomes 800 overnight — and the sellers who can't ship in 24 hours lose the algorithm. We're built for that surge, with the headcount and systems to scale up the same day you need it.</p>
         </div>
       </div>
 
-      <div class="service-block-visual">
-        <div class="hex-frame">
-          <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=900&q=80"
-               alt="TikTok Shop orders being packed with branded materials">
+      <div class="detail-body">
+        <div>
+          <h3 class="detail-section-title">What's included</h3>
+          <ul class="detail-features">
+            <li>24-hour order ship windows to protect TikTok seller ratings</li>
+            <li>TikTok Shop API integration for direct order sync</li>
+            <li>10× same-day scale capacity for viral SKUs</li>
+            <li>Content-ready packaging for unboxing videos</li>
+            <li>Branded inserts, thank-you cards, and stickers</li>
+            <li>Promotional bundle and gift-with-purchase kitting</li>
+            <li>Creator sample fulfillment with custom notes</li>
+            <li>Photographed proof of pack for every order</li>
+          </ul>
+          <div class="detail-ctas">
+            <a href="contact.html?service=tiktok" class="btn btn-primary">Get a TikTok Quote <span class="arrow">→</span></a>
+            <a href="pricing.html" class="btn btn-ghost">See pricing</a>
+          </div>
         </div>
-        <span class="visual-tag">Live · TikTok order surge</span>
+
+        <div class="detail-workflow">
+          <h3 class="detail-section-title">How a TikTok order moves</h3>
+          <ol class="workflow-list">
+            <li class="workflow-step">
+              <span class="workflow-dot">01</span>
+              <div class="workflow-content">
+                <p class="workflow-title">Order syncs via API</p>
+                <p class="workflow-desc">Direct connection to your TikTok Shop. No CSV uploads, no delays.</p>
+              </div>
+            </li>
+            <li class="workflow-step">
+              <span class="workflow-dot">02</span>
+              <div class="workflow-content">
+                <p class="workflow-title">Surge detection</p>
+                <p class="workflow-desc">When volume spikes, our team gets paged and extra pickers come on shift.</p>
+              </div>
+            </li>
+            <li class="workflow-step">
+              <span class="workflow-dot">03</span>
+              <div class="workflow-content">
+                <p class="workflow-title">Content-ready pack</p>
+                <p class="workflow-desc">Your branded packaging, inserts, and unboxing extras applied to every order.</p>
+              </div>
+            </li>
+            <li class="workflow-step">
+              <span class="workflow-dot">04</span>
+              <div class="workflow-content">
+                <p class="workflow-title">Out within 24 hours</p>
+                <p class="workflow-desc">Tracking back to TikTok, rating protected, customer happy.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
       </div>
     </div>
   </div>
 </article>
 
-<!-- ============== 04 · ETSY ============== -->
-<article class="service-block reverse" id="etsy">
+<!-- 04 · Etsy -->
+<article class="service-detail alt" id="etsy">
   <div class="container">
-    <div class="service-block-inner reveal">
-      <div class="service-block-content">
-        <div class="service-meta">
-          <span class="service-num">04</span>
-          <span class="service-meta-sep"></span>
-          <span class="service-channel">Etsy</span>
+    <div class="reveal">
+      <div class="detail-marker">
+        <span class="marker-num">04 / 05</span>
+        <span class="marker-sep"></span>
+        <span>Etsy Shop Owner</span>
+      </div>
+
+      <div class="detail-head">
+        <div class="detail-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 8l10 6 10-6"/>
+            <path d="M14 8v6l10 6 10-6V8"/>
+            <path d="M14 14l-4 4v22h28V18l-4-4"/>
+            <path d="M20 40v-12h8v12"/>
+          </svg>
         </div>
-        <div class="service-channel-pill">
-          <img src="images/Etsy.webp" alt="Etsy icon">
-          <span>Etsy Shop Owner</span>
-        </div>
-
-        <h2>The handmade <em class="italic-accent">feel.</em> Without the handmade hours.</h2>
-        <p class="lede">
-          Etsy buyers don't want to feel like they ordered from a warehouse. They want
-          tissue paper. A handwritten thank-you. A shop sticker. We do that — at fifty
-          orders a day or five hundred — so you can spend your time designing the next
-          product, not stuffing the next envelope.
-        </p>
-
-        <ul class="service-features">
-          <li>Tissue paper, twine, and shop sticker finishing</li>
-          <li>Personalized thank-you cards with shop branding</li>
-          <li>Custom gift wrapping and gift messages</li>
-          <li>Order import from Etsy Seller Hub</li>
-          <li>Etsy-recommended carrier label printing</li>
-          <li>Multi-item kitting for variations and sets</li>
-          <li>Lightweight first-class and parcel-select rates</li>
-          <li>Tracking auto-uploaded to Etsy orders</li>
-        </ul>
-
-        <div class="service-block-ctas">
-          <a href="contact.html?service=etsy" class="btn btn-primary">Get an Etsy Quote <span class="arrow">→</span></a>
-          <a href="pricing.html" class="btn btn-ghost">See pricing</a>
+        <div>
+          <h2>The handmade <em class="italic-accent">feel.</em> Without the handmade hours.</h2>
+          <p class="lede">Etsy buyers don't want to feel like they ordered from a warehouse. They want tissue paper. A handwritten thank-you. A shop sticker. We do all of that — at fifty orders a day or five hundred — so you can spend your time designing the next product, not stuffing the next envelope.</p>
         </div>
       </div>
 
-      <div class="service-block-visual">
-        <div class="hex-frame">
-          <img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=900&q=80"
-               alt="Etsy order wrapped in tissue paper with a handwritten thank-you card">
+      <div class="detail-body">
+        <div>
+          <h3 class="detail-section-title">What's included</h3>
+          <ul class="detail-features">
+            <li>Tissue paper, twine, and shop sticker finishing</li>
+            <li>Personalized thank-you cards with shop branding</li>
+            <li>Custom gift wrapping and gift message handling</li>
+            <li>Order import from Etsy Seller Hub</li>
+            <li>Etsy-recommended carrier label printing</li>
+            <li>Multi-item kitting for variations and sets</li>
+            <li>First-class and parcel-select rate optimization</li>
+            <li>Tracking auto-uploaded to Etsy orders</li>
+          </ul>
+          <div class="detail-ctas">
+            <a href="contact.html?service=etsy" class="btn btn-primary">Get an Etsy Quote <span class="arrow">→</span></a>
+            <a href="pricing.html" class="btn btn-ghost">See pricing</a>
+          </div>
         </div>
-        <span class="visual-tag">Live · Etsy finishing</span>
+
+        <div class="detail-workflow">
+          <h3 class="detail-section-title">How an Etsy order moves</h3>
+          <ol class="workflow-list">
+            <li class="workflow-step">
+              <span class="workflow-dot">01</span>
+              <div class="workflow-content">
+                <p class="workflow-title">Order received</p>
+                <p class="workflow-desc">Imported from Etsy with any personalization notes or gift messages attached.</p>
+              </div>
+            </li>
+            <li class="workflow-step">
+              <span class="workflow-dot">02</span>
+              <div class="workflow-content">
+                <p class="workflow-title">Finished by hand</p>
+                <p class="workflow-desc">Wrapped in tissue, tied with twine, sealed with your shop sticker.</p>
+              </div>
+            </li>
+            <li class="workflow-step">
+              <span class="workflow-dot">03</span>
+              <div class="workflow-content">
+                <p class="workflow-title">Note added</p>
+                <p class="workflow-desc">Your standard thank-you card — or personalized message for the recipient.</p>
+              </div>
+            </li>
+            <li class="workflow-step">
+              <span class="workflow-dot">04</span>
+              <div class="workflow-content">
+                <p class="workflow-title">Shipped and synced</p>
+                <p class="workflow-desc">Tracking uploaded to Etsy, buyer notified, your shop badge protected.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
       </div>
     </div>
   </div>
 </article>
 
-<!-- ============== 05 · SHOPIFY ============== -->
-<article class="service-block alt" id="shopify">
+<!-- 05 · Shopify -->
+<article class="service-detail" id="shopify">
   <div class="container">
-    <div class="service-block-inner reveal">
-      <div class="service-block-content">
-        <div class="service-meta">
-          <span class="service-num">05</span>
-          <span class="service-meta-sep"></span>
-          <span class="service-channel">Shopify</span>
+    <div class="reveal">
+      <div class="detail-marker">
+        <span class="marker-num">05 / 05</span>
+        <span class="marker-sep"></span>
+        <span>Shopify Store Owner</span>
+      </div>
+
+      <div class="detail-head">
+        <div class="detail-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="6" y="14" width="36" height="24" rx="2"/>
+            <path d="M6 22h36"/>
+            <path d="M14 30h10"/>
+            <path d="M34 30l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </div>
-        <div class="service-channel-pill">
-          <img src="images/Shopify.webp" alt="Shopify icon">
-          <span>Shopify Store Owner</span>
-        </div>
-
-        <h2>A 3PL <em class="italic-accent">disguised</em> as your brand.</h2>
-        <p class="lede">
-          Your Shopify customer doesn't need to know we exist. They open a box that
-          looks like yours, with the inserts you designed, sealed with the tape you
-          chose — and a tracking link that says it came from your warehouse. That's
-          the whole job, and we don't cut corners on any of it.
-        </p>
-
-        <ul class="service-features">
-          <li>Direct Shopify Admin order sync</li>
-          <li>Branded packaging, inserts, and tape</li>
-          <li>Multi-channel inventory pooling</li>
-          <li>Subscription and recurring-order support</li>
-          <li>Discounted USPS, UPS, and FedEx rates</li>
-          <li>Kitting for product launches and influencer drops</li>
-          <li>Return management with photo documentation</li>
-          <li>Tracking auto-pushed to Shopify and customer emails</li>
-        </ul>
-
-        <div class="service-block-ctas">
-          <a href="contact.html?service=shopify" class="btn btn-primary">Get a Shopify Quote <span class="arrow">→</span></a>
-          <a href="pricing.html" class="btn btn-ghost">See pricing</a>
+        <div>
+          <h2>A 3PL <em class="italic-accent">disguised</em> as your brand.</h2>
+          <p class="lede">Your Shopify customer doesn't need to know we exist. They open a box that looks like yours, with the inserts you designed, sealed with the tape you chose — and a tracking link that says it came from your warehouse. That's the whole job, and we don't cut corners on any of it.</p>
         </div>
       </div>
 
-      <div class="service-block-visual">
-        <div class="hex-frame">
-          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=80"
-               alt="Branded Shopify shipment with custom packaging ready to dispatch">
+      <div class="detail-body">
+        <div>
+          <h3 class="detail-section-title">What's included</h3>
+          <ul class="detail-features">
+            <li>Direct Shopify Admin order sync via app</li>
+            <li>Branded packaging, inserts, custom tape</li>
+            <li>Multi-channel inventory pooling across stores</li>
+            <li>Subscription and recurring-order support</li>
+            <li>Discounted USPS, UPS, and FedEx rates passed through</li>
+            <li>Kitting for product launches and influencer drops</li>
+            <li>Return management with photo documentation</li>
+            <li>Tracking auto-pushed to Shopify and customer emails</li>
+          </ul>
+          <div class="detail-ctas">
+            <a href="contact.html?service=shopify" class="btn btn-primary">Get a Shopify Quote <span class="arrow">→</span></a>
+            <a href="pricing.html" class="btn btn-ghost">See pricing</a>
+          </div>
         </div>
-        <span class="visual-tag">Live · Shopify dispatch</span>
+
+        <div class="detail-workflow">
+          <h3 class="detail-section-title">How a Shopify order moves</h3>
+          <ol class="workflow-list">
+            <li class="workflow-step">
+              <span class="workflow-dot">01</span>
+              <div class="workflow-content">
+                <p class="workflow-title">Order syncs from Admin</p>
+                <p class="workflow-desc">Connected via our Shopify app — orders flow in automatically, 24/7.</p>
+              </div>
+            </li>
+            <li class="workflow-step">
+              <span class="workflow-dot">02</span>
+              <div class="workflow-content">
+                <p class="workflow-title">Picked from your bin</p>
+                <p class="workflow-desc">Your inventory, segregated and tracked separately from every other client.</p>
+              </div>
+            </li>
+            <li class="workflow-step">
+              <span class="workflow-dot">03</span>
+              <div class="workflow-content">
+                <p class="workflow-title">Branded pack-out</p>
+                <p class="workflow-desc">Your box, your tape, your inserts. Customer never sees our name.</p>
+              </div>
+            </li>
+            <li class="workflow-step">
+              <span class="workflow-dot">04</span>
+              <div class="workflow-content">
+                <p class="workflow-title">Tracking auto-fulfilled</p>
+                <p class="workflow-desc">Shopify marks the order fulfilled, customer gets a branded notification email.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
       </div>
     </div>
   </div>
