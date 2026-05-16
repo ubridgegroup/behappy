@@ -84,7 +84,90 @@
     el.textContent = new Date().getFullYear();
   });
 
-  // 6. Price calculator
+  // 6. Contact form — Formspree submission + URL prefill
+  const form = document.querySelector('[data-contact-form]');
+  if (form) {
+    const successEl = form.querySelector('[data-form-success]');
+    const errorEl = form.querySelector('[data-form-error]');
+    const submitBtn = form.querySelector('[data-form-submit]');
+
+    // Prefill from URL query params (sent by calculator or services CTAs)
+    const params = new URLSearchParams(window.location.search);
+    const fillField = (name, value) => {
+      if (!value) return;
+      const el = form.querySelector(`[name="${name}"]`);
+      if (el) el.value = value;
+    };
+
+    fillField('service', params.get('service'));
+    fillField('units', params.get('units'));
+    fillField('product_size', params.get('size'));
+
+    // If the calculator passed an estimate, drop a friendly summary into the message
+    const units = params.get('units');
+    const size = params.get('size');
+    const estimate = params.get('estimate');
+    const service = params.get('service');
+    if (units || estimate || service) {
+      const msg = form.querySelector('[name="message"]');
+      if (msg && !msg.value) {
+        const lines = [];
+        if (service) lines.push(`Interested in: ${service.toUpperCase()} prep.`);
+        if (units) lines.push(`Volume: ~${parseInt(units, 10).toLocaleString('en-US')} units/month${size ? ' (' + size + ')' : ''}.`);
+        if (estimate) lines.push(`Calculator estimate seen: $${estimate}/month.`);
+        lines.push('', 'Please send me a quote.');
+        msg.value = lines.join('\n');
+      }
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      successEl && successEl.classList.remove('show');
+      errorEl && errorEl.classList.remove('show');
+
+      const originalText = submitBtn ? submitBtn.innerHTML : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Sending…';
+      }
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { Accept: 'application/json' }
+        });
+
+        if (response.ok) {
+          form.reset();
+          successEl && successEl.classList.add('show');
+          // Scroll the success message into view
+          successEl && successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          const data = await response.json().catch(() => ({}));
+          const msg = (data.errors && data.errors.map((er) => er.message).join('. ')) ||
+                      "Something went wrong. Please email us directly at behappyprep@gmail.com.";
+          if (errorEl) {
+            errorEl.textContent = msg;
+            errorEl.classList.add('show');
+          }
+        }
+      } catch (err) {
+        if (errorEl) {
+          errorEl.textContent = "Network error. Please email us directly at behappyprep@gmail.com.";
+          errorEl.classList.add('show');
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+        }
+      }
+    });
+  }
+
+  // 7. Price calculator
   const calc = document.querySelector('[data-calculator]');
   if (calc) {
     // Pricing model — Standard size FBA processing tiers, plus oversize multiplier
