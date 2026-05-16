@@ -9,6 +9,8 @@
   <meta name="description" content="Amazon FBA & FBM prep, labeling, bundling, and warehousing in Dania Beach, FL. Trusted by e-commerce sellers on Amazon, TikTok Shop, Etsy, and Shopify. Get a quote today.">
   <link rel="canonical" href="https://behappyprep.com/">
 
+  <link rel="icon" href="images/favicon.ico">
+
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Be Happy Prep Center">
@@ -73,11 +75,7 @@
   <div class="container">
     <nav class="nav" aria-label="Primary">
       <a class="brand" href="index.html" aria-label="Be Happy Prep Center home">
-        <svg class="brand-mark" viewBox="0 0 32 36" aria-hidden="true">
-          <polygon points="16,1 31,9.5 31,26.5 16,35 1,26.5 1,9.5" fill="none" stroke="#F5A623" stroke-width="1.5"/>
-          <polygon points="16,8 24,12.5 24,21.5 16,26 8,21.5 8,12.5" fill="#F5A623"/>
-        </svg>
-        <span>Be Happy Prep</span>
+        <img class="brand-logo" src="images/BeHappyLight.webp" alt="Be Happy Prep Center logo">
       </a>
 
       <ul class="nav-links" id="primary-nav">
@@ -103,90 +101,158 @@
 <!-- ============== HERO ============== -->
 <section class="hero" aria-labelledby="hero-title">
   <div class="honeycomb-bg" aria-hidden="true"></div>
+
+  <!-- Floating honeycomb cluster behind text -->
+  <div class="hero-deco" aria-hidden="true">
+    <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="cellGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#F5A623" stop-opacity="0.32"/>
+          <stop offset="60%" stop-color="#F5A623" stop-opacity="0.08"/>
+          <stop offset="100%" stop-color="#F5A623" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <g fill="none" stroke="#F5A623" stroke-width="1.2" opacity="0.55">
+        <polygon points="300,80 380,128 380,224 300,272 220,224 220,128"/>
+        <polygon points="380,224 460,272 460,368 380,416 300,368 300,272"/>
+        <polygon points="220,224 300,272 300,368 220,416 140,368 140,272"/>
+        <polygon points="300,368 380,416 380,512 300,560 220,512 220,416"/>
+      </g>
+      <g fill="url(#cellGlow)">
+        <polygon points="300,80 380,128 380,224 300,272 220,224 220,128"/>
+      </g>
+      <g fill="#F5A623" opacity="0.85">
+        <polygon points="380,224 460,272 460,368 380,416 300,368 300,272"/>
+      </g>
+    </svg>
+  </div>
+
   <div class="container">
-    <div class="hero-grid">
-      <div>
-        <span class="eyebrow">South Florida · Dania Beach</span>
-        <h1 id="hero-title">
-          <span class="line">Your inventory,</span>
-          <span class="line"><em class="italic-accent">handled</em> like</span>
-          <span class="line">it's our own.</span>
-        </h1>
-        <p class="lede hero-lede">
-          A boutique Amazon FBA &amp; FBM prep center in Dania Beach, Florida —
-          quietly powering sellers on Amazon, TikTok Shop, Etsy, and Shopify with
-          precise labeling, bundling, storage, and fulfillment.
+    <div class="hero-inner">
+      <span class="eyebrow">South Florida · Dania Beach</span>
+      <h1 id="hero-title">
+        <span class="line">Your inventory,</span>
+        <span class="line"><em class="italic-accent">handled</em> like</span>
+        <span class="line">it's our own.</span>
+      </h1>
+      <p class="lede hero-lede">
+        A boutique Amazon FBA &amp; FBM prep center in Dania Beach, Florida —
+        quietly powering sellers on Amazon, TikTok Shop, Etsy, and Shopify with
+        precise labeling, bundling, storage, and fulfillment.
+      </p>
+      <div class="hero-ctas">
+        <a href="contact.html" class="btn btn-primary">
+          Request a Quote <span class="arrow">→</span>
+        </a>
+        <a href="services.html" class="btn btn-ghost">Explore Services</a>
+      </div>
+
+      <div class="hero-trust" aria-label="Quick facts">
+        <div class="hero-trust-item">
+          <span class="num">48h</span>
+          <span class="label">Avg. turnaround</span>
+        </div>
+        <div class="hero-trust-item">
+          <span class="num">4&nbsp;Channels</span>
+          <span class="label">Amazon · TikTok · Etsy · Shopify</span>
+        </div>
+        <div class="hero-trust-item">
+          <span class="num">M–F</span>
+          <span class="label">9 AM – 6 PM ET</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== CALCULATOR ============== -->
+<section class="calculator-section" aria-labelledby="calc-title">
+  <div class="container">
+    <div class="calc-wrap" data-calculator>
+
+      <div class="calc-intro reveal">
+        <span class="eyebrow">Transparent pricing</span>
+        <h2 id="calc-title">No quotes by email. <em class="italic-accent">Just</em> drag the slider.</h2>
+        <p class="lede">
+          Move the dial to your monthly volume and see exactly what FBA prep will cost.
+          Our standard-size tiers — the same pricing every seller gets, no hidden fees.
         </p>
-        <div class="hero-ctas">
-          <a href="contact.html" class="btn btn-primary">
-            Request a Quote <span class="arrow">→</span>
+
+        <ul class="calc-tier-list" aria-label="FBA standard-size pricing tiers">
+          <li data-calc-tier="0">
+            <span class="tier-dot" aria-hidden="true"></span>
+            <span class="tier-range">Up to 20 units</span>
+            <span class="tier-price">$1.00 / unit</span>
+          </li>
+          <li data-calc-tier="1">
+            <span class="tier-dot" aria-hidden="true"></span>
+            <span class="tier-range">21 – 1,000 units</span>
+            <span class="tier-price">$0.80 / unit</span>
+          </li>
+          <li data-calc-tier="2">
+            <span class="tier-dot" aria-hidden="true"></span>
+            <span class="tier-range">1,001 – 5,000 units</span>
+            <span class="tier-price">$0.65 / unit</span>
+          </li>
+          <li data-calc-tier="3">
+            <span class="tier-dot" aria-hidden="true"></span>
+            <span class="tier-range">5,000+ units</span>
+            <span class="tier-price">$0.50 / unit</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="calc-panel reveal">
+        <div class="calc-header">
+          <span class="calc-title">FBA Prep · Estimate</span>
+          <span class="calc-id">BHP-CALC-01</span>
+        </div>
+
+        <div class="calc-controls">
+          <div class="calc-control-row">
+            <span class="calc-label">Units / month</span>
+            <span class="calc-value" data-calc-qty>500</span>
+          </div>
+          <input
+            class="calc-slider"
+            type="range"
+            min="0"
+            max="1000"
+            value="617"
+            step="1"
+            aria-label="Monthly unit volume"
+            data-calc-slider>
+
+          <div class="calc-control-row">
+            <span class="calc-label">Product size</span>
+          </div>
+          <div class="calc-size" role="group" aria-label="Product size">
+            <button type="button" data-calc-size="standard" aria-pressed="true">Standard</button>
+            <button type="button" data-calc-size="oversize" aria-pressed="false">Oversize</button>
+          </div>
+        </div>
+
+        <div class="calc-output">
+          <div>
+            <span class="out-label">Estimated monthly cost</span>
+            <span class="out-total" data-calc-total>$400.00</span>
+            <div class="out-perunit" data-calc-perunit>$0.80 per unit · 21 – 1,000 units</div>
+          </div>
+        </div>
+
+        <p class="calc-note">
+          Standard prep is FNSKU labeling. Bundling, bagging, and oversize tiers vary —
+          send us your spec and we'll quote the rest within one business day.
+        </p>
+
+        <div class="calc-cta">
+          <a class="btn btn-primary" data-calc-cta href="contact.html">
+            Lock in this rate <span class="arrow">→</span>
           </a>
-          <a href="services.html" class="btn btn-ghost">Explore Services</a>
-        </div>
-
-        <div class="hero-trust" aria-label="Quick facts">
-          <div class="hero-trust-item">
-            <span class="num"><span data-count="48" data-suffix="h">0h</span></span>
-            <span class="label">Avg. turnaround</span>
-          </div>
-          <div class="hero-trust-item">
-            <span class="num">4&nbsp;Channels</span>
-            <span class="label">Amazon · TikTok · Etsy · Shopify</span>
-          </div>
-          <div class="hero-trust-item">
-            <span class="num">M–F</span>
-            <span class="label">9 AM – 6 PM ET</span>
-          </div>
+          <a class="btn btn-ghost" href="pricing.html">Full pricing</a>
         </div>
       </div>
 
-      <div class="hero-visual" aria-hidden="true">
-        <div class="hex-grid">
-          <div class="hex-cell empty"></div>
-          <div class="hex-cell">
-            <img src="https://images.unsplash.com/photo-1601598851547-4302969d0614?w=400&q=80" alt="">
-          </div>
-          <div class="hex-cell empty"></div>
-
-          <div class="hex-cell">
-            <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=400&q=80" alt="">
-          </div>
-          <div class="hex-cell accent">
-            <div>
-              <div class="accent-num">100%</div>
-              <div class="accent-label">FBA compliant</div>
-            </div>
-          </div>
-          <div class="hex-cell">
-            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&q=80" alt="">
-          </div>
-
-          <div class="hex-cell empty"></div>
-          <div class="hex-cell">
-            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80" alt="">
-          </div>
-          <div class="hex-cell empty"></div>
-
-          <div class="hex-cell">
-            <img src="https://images.unsplash.com/photo-1568010967706-c2a52aadcd8b?w=400&q=80" alt="">
-          </div>
-          <div class="hex-cell accent">
-            <div>
-              <div class="accent-num">Dania</div>
-              <div class="accent-label">Beach, FL</div>
-            </div>
-          </div>
-          <div class="hex-cell">
-            <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&q=80" alt="">
-          </div>
-
-          <div class="hex-cell empty"></div>
-          <div class="hex-cell">
-            <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=400&q=80" alt="">
-          </div>
-          <div class="hex-cell empty"></div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -194,13 +260,23 @@
 <!-- ============== CHANNEL STRIP ============== -->
 <section class="channel-strip" aria-label="Marketplaces we support">
   <div class="container">
-    <div class="channel-strip-inner">
-      <span class="channel-label">Trusted for sellers on</span>
-      <div class="channel-list">
-        <span class="channel">Amazon</span>
-        <span class="channel">TikTok Shop</span>
-        <span class="channel">Etsy</span>
-        <span class="channel">Shopify</span>
+    <span class="channel-label">Trusted for sellers on</span>
+    <div class="channel-list">
+      <div class="channel-item">
+        <span class="channel-icon"><img src="images/Amazon.webp" alt="Amazon marketplace icon" loading="lazy"></span>
+        <span class="channel-name">Amazon</span>
+      </div>
+      <div class="channel-item">
+        <span class="channel-icon"><img src="images/TikTok.webp" alt="TikTok Shop icon" loading="lazy"></span>
+        <span class="channel-name">TikTok Shop</span>
+      </div>
+      <div class="channel-item">
+        <span class="channel-icon"><img src="images/Etsy.webp" alt="Etsy marketplace icon" loading="lazy"></span>
+        <span class="channel-name">Etsy</span>
+      </div>
+      <div class="channel-item">
+        <span class="channel-icon"><img src="images/Shopify.webp" alt="Shopify e-commerce icon" loading="lazy"></span>
+        <span class="channel-name">Shopify</span>
       </div>
     </div>
   </div>
@@ -400,11 +476,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a class="brand" href="index.html">
-          <svg class="brand-mark" viewBox="0 0 32 36" aria-hidden="true">
-            <polygon points="16,1 31,9.5 31,26.5 16,35 1,26.5 1,9.5" fill="none" stroke="#F5A623" stroke-width="1.5"/>
-            <polygon points="16,8 24,12.5 24,21.5 16,26 8,21.5 8,12.5" fill="#F5A623"/>
-          </svg>
-          <span>Be Happy Prep</span>
+          <img class="brand-logo" src="images/BeHappyLight.webp" alt="Be Happy Prep Center logo">
         </a>
         <p>A South Florida prep, fulfillment, and warehousing partner for e-commerce sellers who care about the details.</p>
       </div>
