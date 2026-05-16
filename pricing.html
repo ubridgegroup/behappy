@@ -99,6 +99,131 @@
   </div>
 </section>
 
+<!-- ============== CALCULATOR ============== -->
+<section class="calculator-section" aria-labelledby="calc-title" style="padding-top: var(--sp-10); padding-bottom: var(--sp-10);">
+  <div class="container">
+    <div class="calc-wrap full" data-calculator data-mode="fba">
+      <div class="calc-panel reveal">
+
+        <div class="calc-header">
+          <span class="calc-title" id="calc-title">Live Prep Calculator</span>
+          <span class="calc-id">BHP-CALC-FULL</span>
+        </div>
+
+        <!-- Mode tabs -->
+        <div class="calc-modes" role="group" aria-label="Service type">
+          <button type="button" data-calc-mode="fba" aria-pressed="true">Amazon FBA</button>
+          <button type="button" data-calc-mode="fbm" aria-pressed="false">Amazon FBM</button>
+        </div>
+
+        <div class="calc-controls">
+
+          <!-- Volume slider -->
+          <div class="calc-control-row">
+            <span class="calc-label">Units / month</span>
+            <span class="calc-value" data-calc-qty>500</span>
+          </div>
+          <input
+            class="calc-slider"
+            type="range"
+            min="0"
+            max="1000"
+            value="617"
+            step="1"
+            aria-label="Monthly unit volume"
+            data-calc-slider>
+
+          <!-- FBA size group -->
+          <div data-calc-mode-group="fba">
+            <div class="calc-control-row" style="margin-top: var(--sp-4);">
+              <span class="calc-label">FBA product size</span>
+            </div>
+            <div class="calc-size-4" role="group" aria-label="FBA size">
+              <button type="button" data-calc-size="std" aria-pressed="true">Standard<br>$0.50–$1.00</button>
+              <button type="button" data-calc-size="os-1" aria-pressed="false">Oversize<br>5–10 lbs</button>
+              <button type="button" data-calc-size="os-2" aria-pressed="false">Oversize<br>10–15 lbs</button>
+              <button type="button" data-calc-size="os-3" aria-pressed="false">Oversize<br>15+ lbs</button>
+            </div>
+          </div>
+
+          <!-- FBM size group -->
+          <div data-calc-mode-group="fbm" hidden>
+            <div class="calc-control-row" style="margin-top: var(--sp-4);">
+              <span class="calc-label">FBM product size</span>
+            </div>
+            <div class="calc-size-4" role="group" aria-label="FBM size">
+              <button type="button" data-calc-size="std" aria-pressed="true">Standard<br>$2.50</button>
+              <button type="button" data-calc-size="fbm-1" aria-pressed="false">5–10 lbs<br>$3.50</button>
+              <button type="button" data-calc-size="fbm-2" aria-pressed="false">10–20 lbs<br>$4.50</button>
+              <button type="button" data-calc-size="fbm-3" aria-pressed="false">20+ lbs<br>$6.00</button>
+            </div>
+          </div>
+
+          <!-- Add-ons -->
+          <div style="margin-top: var(--sp-4);">
+            <h3 class="calc-section-divider">Add-ons</h3>
+            <div class="calc-addons">
+
+              <div class="calc-addon">
+                <div class="calc-addon-head">
+                  <label class="calc-addon-label">
+                    <input type="checkbox" data-calc-bundle-toggle>
+                    <span class="calc-check" aria-hidden="true"></span>
+                    <span class="calc-addon-name">Bundling</span>
+                  </label>
+                  <span class="calc-addon-rate">$1.20 + $0.20/extra item</span>
+                </div>
+                <div class="calc-addon-controls" data-calc-bundle-controls hidden>
+                  <label for="bundle-items">Items per bundle</label>
+                  <input type="number" id="bundle-items" data-calc-bundle-items value="2" min="2" max="20">
+                </div>
+              </div>
+
+              <div class="calc-addon">
+                <div class="calc-addon-head">
+                  <label class="calc-addon-label">
+                    <input type="checkbox" data-calc-returns-toggle>
+                    <span class="calc-check" aria-hidden="true"></span>
+                    <span class="calc-addon-name">Returns processing</span>
+                  </label>
+                  <span class="calc-addon-rate">$5–$10 per return</span>
+                </div>
+                <div class="calc-addon-controls" data-calc-returns-controls hidden>
+                  <label for="returns-count">Returns / month</label>
+                  <input type="number" id="returns-count" data-calc-returns-count value="10" min="0" max="500">
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Output -->
+        <div class="calc-output">
+          <div style="width:100%;">
+            <span class="out-label">Estimated monthly cost</span>
+            <span class="out-total" data-calc-total>$400.00</span>
+            <div class="out-perunit" data-calc-perunit>$0.80 per unit · 21 – 1,000 units</div>
+            <div class="calc-breakdown" data-calc-breakdown></div>
+          </div>
+        </div>
+
+        <p class="calc-note">
+          Estimates use list pricing from the tables below. Bundling charges apply per unit shipped. Storage, pallet handling, and shipping label costs are billed separately.
+        </p>
+
+        <div class="calc-cta">
+          <a class="btn btn-primary" data-calc-cta href="contact.html">
+            Get this Quote <span class="arrow">→</span>
+          </a>
+          <a class="btn btn-ghost" href="#fba">Jump to full pricing</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============== TABLE OF CONTENTS ============== -->
 <section class="tight" aria-labelledby="toc-title">
   <div class="container">

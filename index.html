@@ -167,7 +167,7 @@
 <!-- ============== CALCULATOR ============== -->
 <section class="calculator-section" aria-labelledby="calc-title">
   <div class="container">
-    <div class="calc-wrap" data-calculator>
+    <div class="calc-wrap" data-calculator data-mode="fba">
 
       <div class="calc-intro reveal">
         <span class="eyebrow">Transparent pricing</span>
@@ -225,9 +225,11 @@
           <div class="calc-control-row">
             <span class="calc-label">Product size</span>
           </div>
-          <div class="calc-size" role="group" aria-label="Product size">
-            <button type="button" data-calc-size="standard" aria-pressed="true">Standard</button>
-            <button type="button" data-calc-size="oversize" aria-pressed="false">Oversize</button>
+          <div data-calc-mode-group="fba">
+            <div class="calc-size" role="group" aria-label="Product size">
+              <button type="button" data-calc-size="std" aria-pressed="true">Standard</button>
+              <button type="button" data-calc-size="os-1" aria-pressed="false">Oversize</button>
+            </div>
           </div>
         </div>
 
@@ -262,6 +264,8 @@
     <span class="channel-label">Trusted for sellers on</span>
     <div class="channel-list">
       <img class="channel-logo" src="images/AmazonWorkmark.webp" alt="Amazon" loading="lazy">
+      <img class="channel-logo" src="images/WalmartWordmark.webp" alt="Walmart" loading="lazy">
+      <img class="channel-logo" src="images/eBayWordmark.webp" alt="eBay" loading="lazy">
       <img class="channel-logo" src="images/TikTokShopWorkmark.webp" alt="TikTok Shop" loading="lazy">
       <img class="channel-logo" src="images/EtsyWorkmark.webp" alt="Etsy" loading="lazy">
       <img class="channel-logo" src="images/ShopifyWorkmark.webp" alt="Shopify" loading="lazy">

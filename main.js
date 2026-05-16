@@ -170,64 +170,142 @@
   // 7. Price calculator
   const calc = document.querySelector('[data-calculator]');
   if (calc) {
-    // Pricing model — Standard size FBA processing tiers, plus oversize multiplier
-    const STANDARD_TIERS = [
+    // ---------------- Pricing model (from pricing.html source data) ----------------
+    const FBA_STANDARD_TIERS = [
       { min: 1,    max: 20,    rate: 1.00, label: 'Up to 20 units' },
       { min: 21,   max: 1000,  rate: 0.80, label: '21 – 1,000 units' },
       { min: 1001, max: 5000,  rate: 0.65, label: '1,001 – 5,000 units' },
       { min: 5001, max: Infinity, rate: 0.50, label: '5,000+ units' }
     ];
-    const OVERSIZE_RATE = 2.00; // entry-level oversize price for the calc preview
+    const FBA_OVERSIZE_RATES = {
+      'os-1': { rate: 2.00, label: 'Oversize · 5–10 lbs' },
+      'os-2': { rate: 3.00, label: 'Oversize · 10–15 lbs' },
+      'os-3': { rate: 5.00, label: 'Oversize · 15+ lbs' }
+    };
+    const FBM_RATES = {
+      'std':  { rate: 2.50, label: 'FBM · Standard size' },
+      'fbm-1': { rate: 3.50, label: 'FBM · 5–10 lbs' },
+      'fbm-2': { rate: 4.50, label: 'FBM · 10–20 lbs' },
+      'fbm-3': { rate: 6.00, label: 'FBM · 20+ lbs' }
+    };
+    const BUNDLE_BASE = 1.20;     // first 2 items
+    const BUNDLE_EXTRA = 0.20;    // each additional
+    const RETURN_STANDARD = 5.00;
+    const RETURN_OVERSIZE = 10.00;
 
-    const slider = calc.querySelector('[data-calc-slider]');
-    const qtyEl  = calc.querySelector('[data-calc-qty]');
-    const sizeButtons = calc.querySelectorAll('[data-calc-size]');
+    // ---------------- Element refs ----------------
+    const slider     = calc.querySelector('[data-calc-slider]');
+    const qtyEl      = calc.querySelector('[data-calc-qty]');
     const totalEl    = calc.querySelector('[data-calc-total]');
     const perUnitEl  = calc.querySelector('[data-calc-perunit]');
     const ctaEl      = calc.querySelector('[data-calc-cta]');
     const tierItems  = calc.querySelectorAll('[data-calc-tier]');
+    const breakdownEl = calc.querySelector('[data-calc-breakdown]');
 
-    let size = 'standard';
+    // Mode buttons (e.g. FBA vs FBM)
+    const modeButtons = calc.querySelectorAll('[data-calc-mode]');
+    // Size buttons within active mode
+    const sizeButtons = calc.querySelectorAll('[data-calc-size]');
+    // Add-on inputs
+    const bundleToggle  = calc.querySelector('[data-calc-bundle-toggle]');
+    const bundleItems   = calc.querySelector('[data-calc-bundle-items]');
+    const bundleControls = calc.querySelector('[data-calc-bundle-controls]');
+    const returnsToggle = calc.querySelector('[data-calc-returns-toggle]');
+    const returnsCount  = calc.querySelector('[data-calc-returns-count]');
+    const returnsControls = calc.querySelector('[data-calc-returns-controls]');
 
-    // Map a logarithmic slider position (0-1000) to a unit count (1 - 10000)
+    // ---------------- State ----------------
+    let mode = calc.dataset.mode || 'fba';  // 'fba' or 'fbm'
+    let size = 'std';                        // 'std' | 'os-1' | 'os-2' | 'os-3' | 'fbm-1' | ...
+
+    // ---------------- Helpers ----------------
     const sliderToQty = (v) => {
       const min = 1, max = 10000;
       const lmin = Math.log(min), lmax = Math.log(max);
       const scale = (lmax - lmin) / 1000;
       return Math.round(Math.exp(lmin + scale * v));
     };
-
-    const fmt = (n) =>
-      '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const fmt = (n) => '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     const fmtQty = (n) => n.toLocaleString('en-US');
+    const findStandardTier = (qty) =>
+      FBA_STANDARD_TIERS.find((t) => qty >= t.min && qty <= t.max) || FBA_STANDARD_TIERS[FBA_STANDARD_TIERS.length - 1];
 
-    const findTier = (qty) =>
-      STANDARD_TIERS.find((t) => qty >= t.min && qty <= t.max) || STANDARD_TIERS[STANDARD_TIERS.length - 1];
+    // Get base per-unit rate for current mode + size
+    const getPerUnitRate = (qty) => {
+      if (mode === 'fba') {
+        if (size === 'std') return { rate: findStandardTier(qty).rate, label: findStandardTier(qty).label, tierIdx: FBA_STANDARD_TIERS.indexOf(findStandardTier(qty)) };
+        const os = FBA_OVERSIZE_RATES[size];
+        if (os) return { rate: os.rate, label: os.label, tierIdx: -1 };
+      }
+      if (mode === 'fbm') {
+        const fbm = FBM_RATES[size] || FBM_RATES.std;
+        return { rate: fbm.rate, label: fbm.label, tierIdx: -1 };
+      }
+      return { rate: 0, label: '—', tierIdx: -1 };
+    };
 
+    // ---------------- Render ----------------
     const update = () => {
       const qty = sliderToQty(parseInt(slider.value, 10));
-      const tier = findTier(qty);
-      const perUnit = size === 'oversize' ? OVERSIZE_RATE : tier.rate;
-      const total = perUnit * qty;
+      const { rate: perUnit, label: rateLabel, tierIdx } = getPerUnitRate(qty);
+      const baseCost = perUnit * qty;
 
-      qtyEl.textContent = fmtQty(qty);
-      totalEl.textContent = fmt(total);
-      totalEl.classList.remove('pulse');
-      // Force reflow to restart animation
-      void totalEl.offsetWidth;
-      totalEl.classList.add('pulse');
+      // Bundling: cost per bundle = $1.20 (first 2 items) + $0.20 * (extra items beyond 2)
+      // Assume each "bundle" corresponds to one unit shipped — N units = N bundles.
+      let bundleCost = 0;
+      if (bundleToggle && bundleToggle.checked && bundleItems) {
+        const items = Math.max(2, parseInt(bundleItems.value, 10) || 2);
+        const extras = Math.max(0, items - 2);
+        bundleCost = (BUNDLE_BASE + extras * BUNDLE_EXTRA) * qty;
+      }
 
-      perUnitEl.textContent = `${fmt(perUnit)} per unit · ${size === 'oversize' ? 'Oversize (5–10 lbs)' : tier.label}`;
+      // Returns
+      let returnsCost = 0;
+      let returnsCount_n = 0;
+      if (returnsToggle && returnsToggle.checked && returnsCount) {
+        returnsCount_n = Math.max(0, parseInt(returnsCount.value, 10) || 0);
+        // Treat oversize returns based on size selection
+        const isOversize = size.startsWith('os-') || size.startsWith('fbm-');
+        returnsCost = returnsCount_n * (isOversize ? RETURN_OVERSIZE : RETURN_STANDARD);
+      }
 
-      // Highlight active tier (only for standard)
+      const total = baseCost + bundleCost + returnsCost;
+
+      // Update visible numbers
+      if (qtyEl) qtyEl.textContent = fmtQty(qty);
+      if (totalEl) {
+        totalEl.textContent = fmt(total);
+        totalEl.classList.remove('pulse');
+        void totalEl.offsetWidth;
+        totalEl.classList.add('pulse');
+      }
+      if (perUnitEl) perUnitEl.textContent = `${fmt(perUnit)} per unit · ${rateLabel}`;
+
+      // Breakdown (if shown)
+      if (breakdownEl) {
+        const rows = [];
+        rows.push(`<div class="breakdown-row"><span>${rateLabel} × ${fmtQty(qty)}</span><span>${fmt(baseCost)}</span></div>`);
+        if (bundleCost > 0) {
+          const items = Math.max(2, parseInt(bundleItems.value, 10) || 2);
+          rows.push(`<div class="breakdown-row"><span>Bundling — ${items}-item bundles × ${fmtQty(qty)}</span><span>${fmt(bundleCost)}</span></div>`);
+        }
+        if (returnsCost > 0) {
+          const isOversize = size.startsWith('os-') || size.startsWith('fbm-');
+          rows.push(`<div class="breakdown-row"><span>Returns × ${returnsCount_n} (${isOversize ? 'oversize' : 'standard'})</span><span>${fmt(returnsCost)}</span></div>`);
+        }
+        breakdownEl.innerHTML = rows.join('');
+      }
+
+      // Highlight active FBA standard tier
       tierItems.forEach((li) => {
         const idx = parseInt(li.dataset.calcTier, 10);
-        li.classList.toggle('active', size === 'standard' && idx === STANDARD_TIERS.indexOf(tier));
+        li.classList.toggle('active', mode === 'fba' && size === 'std' && idx === tierIdx);
       });
 
-      // Update CTA link with prefilled query (Contact page reads these)
+      // CTA prefill
       if (ctaEl) {
         const params = new URLSearchParams({
+          service: mode,
           units: qty,
           size: size,
           estimate: total.toFixed(2)
@@ -236,16 +314,60 @@
       }
     };
 
-    slider.addEventListener('input', update);
+    // ---------------- Wiring ----------------
+    if (slider) slider.addEventListener('input', update);
 
+    // Mode buttons (FBA / FBM)
+    modeButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        modeButtons.forEach((b) => b.setAttribute('aria-pressed', 'false'));
+        btn.setAttribute('aria-pressed', 'true');
+        mode = btn.dataset.calcMode;
+
+        // Reset size to first available for that mode
+        const validSizes = calc.querySelectorAll(`[data-calc-mode-group="${mode}"] [data-calc-size]`);
+        const allGroups = calc.querySelectorAll('[data-calc-mode-group]');
+        allGroups.forEach((g) => g.hidden = g.dataset.calcModeGroup !== mode);
+
+        if (validSizes.length) {
+          validSizes.forEach((b) => b.setAttribute('aria-pressed', 'false'));
+          validSizes[0].setAttribute('aria-pressed', 'true');
+          size = validSizes[0].dataset.calcSize;
+        }
+        update();
+      });
+    });
+
+    // Size buttons
     sizeButtons.forEach((btn) => {
       btn.addEventListener('click', () => {
-        sizeButtons.forEach((b) => b.setAttribute('aria-pressed', 'false'));
+        // Only toggle within the same mode group
+        const group = btn.closest('[data-calc-mode-group]');
+        const groupButtons = group ? group.querySelectorAll('[data-calc-size]') : sizeButtons;
+        groupButtons.forEach((b) => b.setAttribute('aria-pressed', 'false'));
         btn.setAttribute('aria-pressed', 'true');
         size = btn.dataset.calcSize;
         update();
       });
     });
+
+    // Bundling toggle
+    if (bundleToggle) {
+      bundleToggle.addEventListener('change', () => {
+        if (bundleControls) bundleControls.hidden = !bundleToggle.checked;
+        update();
+      });
+    }
+    if (bundleItems) bundleItems.addEventListener('input', update);
+
+    // Returns toggle
+    if (returnsToggle) {
+      returnsToggle.addEventListener('change', () => {
+        if (returnsControls) returnsControls.hidden = !returnsToggle.checked;
+        update();
+      });
+    }
+    if (returnsCount) returnsCount.addEventListener('input', update);
 
     update();
   }
