@@ -1181,7 +1181,7 @@ section.tight { padding: var(--sp-12) 0; }
   width: 100%;
   height: 100%;
   object-fit: contain;
-  transform: scale(1.8);
+  transform: scale(1.6);
 }
 
 .overview-card-title {
@@ -1294,7 +1294,7 @@ section.tight { padding: var(--sp-12) 0; }
   width: 100%;
   height: 100%;
   object-fit: contain;
-  transform: scale(1.8);
+  transform: scale(1.6);
 }
 
 .detail-head h2 {
